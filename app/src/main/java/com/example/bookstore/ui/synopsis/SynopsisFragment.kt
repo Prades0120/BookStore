@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bookstore.R
 import com.example.bookstore.databinding.FragmentSynopsisBinding
+import com.example.bookstore.ui.books.BooksAdapter
 
 class SynopsisFragment : Fragment() {
 
@@ -30,9 +34,8 @@ class SynopsisFragment : Fragment() {
         _binding = FragmentSynopsisBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        synopsisViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+       synopsisViewModel.list.observe(viewLifecycleOwner, Observer {
+
         })
         return root
     }

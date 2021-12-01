@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bookstore.R
 import com.example.bookstore.databinding.FragmentBooksBinding
 
 class BooksFragment : Fragment() {
@@ -29,10 +32,14 @@ class BooksFragment : Fragment() {
 
         _binding = FragmentBooksBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        booksViewModel.list.observe(viewLifecycleOwner, Observer {
+            val recView = binding.root.findViewById<RecyclerView>(R.id.recyclerViewBooks)
 
-        val textView: TextView = binding.textHome
-        booksViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            recView.setHasFixedSize(true)
+
+            val adaptador = BooksAdapter(it)
+            recView.adapter = adaptador
+            recView.layoutManager = LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
         })
         return root
     }
