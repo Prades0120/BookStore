@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alexp/StudioProjects/BookStore/app/src/main/res/layout/fragment_synopsis.xml" value="0.2115036231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1752786220871327" />
         <entry key="app/src/main/res/layout/book_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_books.xml" value="0.33061594202898553" />
